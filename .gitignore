@@ -2,3 +2,4 @@ connections.py
 .vscode/
 .vs/
 __pycache__/
+seed/

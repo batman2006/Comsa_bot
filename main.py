@@ -1,31 +1,14 @@
 import telebot
-from pymongo import MongoClient
-from urllib.parse import quote_plus
-from connections import bot_token, redis_client , db_password
-from markups import  start_markup , menu_markup , gen_markup , copy_markup
-from defs import save_password , check_new_password , my_check_password
-from generator import generate_passwords
+from connections import bot_token
+from markups import  start_markup
 
 bot = telebot.TeleBot(bot_token)
 
-encoded_password = quote_plus(db_password)
-
-cluster = MongoClient(f"mongodb+srv://nazarworker17:{encoded_password}@cluster0.momxsd3.mongodb.net/?retryWrites=true&w=majority")
-db = cluster["test"]
-collection = db["test"]
-
-chat_states = {}
-
-
 @bot.message_handler(commands=['start'])
 def start(message):
-    user_password = redis_client.get(f"user_password:{message.chat.id}")
-    if user_password:
-        bot.reply_to(message, "Вітаємо вас у головному меню",reply_markup=menu_markup)
-    else:
-        bot.send_message(message.chat.id, "Привіт, цей бот створений для доступного і безпечного зберігання твоїх паролей і не тільки.",reply_markup=start_markup)
+    bot.send_message(message.chat.id, "Привіт👋 Обери криптовалюту , яку хочеш купити або можеш перевірити свій баланс",reply_markup=start_markup)
 
-@bot.message_handler(func=lambda message: chat_states.get(message.chat.id) == 'current_pass')
+"""@bot.message_handler(func=lambda message: chat_states.get(message.chat.id) == 'current_pass')
 def check_current_password(message):
     user_password = redis_client.get(f"user_password:{message.chat.id}")
     if user_password == message.text:
@@ -129,7 +112,7 @@ def save_to_database(user_id, login, password):
 
 @bot.message_handler(func=lambda message: True)
 def saver(message):
-    save_password(message)
+    save_password(message)"""
         
 # RUN
 bot.infinity_polling()
