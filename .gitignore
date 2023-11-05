@@ -1,5 +1,4 @@
 connections.py
 .vscode/
-.vs/
 __pycache__/
-seed/
+seed.txt
