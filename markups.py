@@ -8,7 +8,7 @@ start_markup.add(types.InlineKeyboardButton("♻️SOL♻️", callback_data="SO
 start_markup.add(types.InlineKeyboardButton("🌐ETH🌐", callback_data="ETH"))
 start_markup.add(types.InlineKeyboardButton("💎SUI💎", callback_data="SUI"))
 start_markup.add(types.InlineKeyboardButton("⚫️APTOS⚫️", callback_data="APTOS"))
-start_markup.add(types.InlineKeyboardButton("Баланс👤", callback_data="balance"))
+start_markup.add(types.InlineKeyboardButton("Мій профіль👤", callback_data="profile"))
 
 quantity_markup = types.InlineKeyboardMarkup()
 quantity_markup.add(types.InlineKeyboardButton("Ввести суму в гривнях 🇺🇦", callback_data="grn"))
@@ -17,3 +17,7 @@ quantity_markup.add(types.InlineKeyboardButton("Повернутись наза�
 
 address_markup = types.InlineKeyboardMarkup()
 address_markup.add(types.InlineKeyboardButton("Повернутись назад ⬅️", callback_data="back"))
+
+profile_markup = types.InlineKeyboardMarkup()
+profile_markup.add(types.InlineKeyboardButton("Реферальна система 👥", callback_data="refs"))
+profile_markup.add(types.InlineKeyboardButton("Статистика обмінів 📊", callback_data="stats"))
