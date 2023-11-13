@@ -21,3 +21,4 @@ address_markup.add(types.InlineKeyboardButton("Повернутись назад
 profile_markup = types.InlineKeyboardMarkup()
 profile_markup.add(types.InlineKeyboardButton("Реферальна система 👥", callback_data="refs"))
 profile_markup.add(types.InlineKeyboardButton("Статистика обмінів 📊", callback_data="stats"))
+profile_markup.add(types.InlineKeyboardButton("Повернутись назад ⬅️", callback_data="back"))
