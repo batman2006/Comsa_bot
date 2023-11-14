@@ -22,3 +22,11 @@ profile_markup = types.InlineKeyboardMarkup()
 profile_markup.add(types.InlineKeyboardButton("Реферальна система 👥", callback_data="refs"))
 profile_markup.add(types.InlineKeyboardButton("Статистика обмінів 📊", callback_data="stats"))
 profile_markup.add(types.InlineKeyboardButton("Повернутись назад ⬅️", callback_data="back"))
+
+grn_markup = types.InlineKeyboardMarkup()
+grn_markup.add(types.InlineKeyboardButton("Ввести суму в доларах 🇺🇸", callback_data="usd"))
+grn_markup.add(types.InlineKeyboardButton("Повернутись назад ⬅️", callback_data="back"))
+
+usd_markup = types.InlineKeyboardMarkup()
+usd_markup.add(types.InlineKeyboardButton("Ввести суму в гривнях 🇺🇦", callback_data="grn"))
+usd_markup.add(types.InlineKeyboardButton("Повернутись назад ⬅️", callback_data="back"))

@@ -1,6 +1,6 @@
 import telebot
 from connections import bot_token
-from markups import start_markup, quantity_markup, address_markup, profile_markup
+from markups import start_markup, quantity_markup, address_markup, profile_markup , grn_markup , usd_markup
 
 user_data = {}
 form_status = None
@@ -34,7 +34,11 @@ def handle_callback(call):
     elif call.data == 'profile':
         bot.send_message(chat_id, "Тут ви можете переглядати інформацію про себе 📱", reply_markup=profile_markup)
         form_status = 'profile'
-
+    elif call.data in ['grn','usd']:
+        chosen_coin = call.data
+        bot.send_message(chat_id, f"Обрано {chosen_coin}. Введіть вартість потрібної вам кількості в {chosen_coin}", reply_markup=quantity_markup)
+        user_data[chat_id] = {'coin': chosen_coin, 'status': 'filling'}
+        form_status = "quantity"
 
 @bot.message_handler(func=lambda message: message.chat.id in user_data and form_status == "quantity")
 def handle_quantity(message):
