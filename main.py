@@ -43,6 +43,8 @@ def handle_callback(call):
             bot.send_message(chat_id, f"Обрано долари. Введіть вартість потрібної вам кількості в доларах", reply_markup=quantity_markup)
         user_data[chat_id] = {'coin': chosen_coin, 'status': 'filling'}
         form_status = "markup"  # Change form_status to 'markup'
+    elif call.data in ['profile']:
+        bot.send_message(chat_id, "Переглянь свою статистику або скористайся реферальною системою🤝", reply_markup=profile_markup)
 
 @bot.message_handler(func=lambda message: message.chat.id in user_data and form_status == "quantity")
 def handle_quantity(message):
