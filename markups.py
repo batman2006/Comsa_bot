@@ -30,3 +30,7 @@ grn_markup.add(types.InlineKeyboardButton("Повернутись назад ⬅
 usd_markup = types.InlineKeyboardMarkup()
 usd_markup.add(types.InlineKeyboardButton("Ввести суму в гривнях 🇺🇦", callback_data="grn"))
 usd_markup.add(types.InlineKeyboardButton("Повернутись назад ⬅️", callback_data="back"))
+
+sure_markup = types.InlineKeyboardMarkup()
+sure_markup.add(types.InlineKeyboardButton("Підтвердити ✅", callback_data="approvr"))
+sure_markup.add(types.InlineKeyboardButton("Повернутись назад ⬅️", callback_data="back"))

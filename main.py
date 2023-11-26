@@ -1,6 +1,6 @@
 import telebot
 from connections import bot_token
-from markups import start_markup, quantity_markup, address_markup, profile_markup , grn_markup , usd_markup
+from markups import start_markup, quantity_markup, address_markup, profile_markup , grn_markup , usd_markup , sure_markup
 
 user_data = {}
 form_status = None
@@ -69,8 +69,9 @@ def handle_address(message):
     address = message.text
     user_data[chat_id]['address'] = address
     user_data[chat_id]['status'] = 'complete'
-    bot.send_message(chat_id, "Замовлення завершено! Інформація збережена.")
-    form_status = None
+    bot.send_message(chat_id, "◾️ Я впевнений в покупці криптовалюти.                                         ◾️ Я оплачую з своєї банківської карти.", reply_markup=sure_markup)
+    form_status = "sure"
+
 
 # RUN
 bot.infinity_polling()
